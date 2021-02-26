@@ -27,16 +27,21 @@
       <form autocomplete="off">
         <fieldset>
           <legend aria-describedby="form-requirements">Sign Up</legend>
-          <span id="form-requirements">All fields are required</span>
+          <div id="form-requirements">All fields are required.</div>
           <label for="email">Email</label>
-          <input type="text" id="email">
+          <input type="email" id="email" name="email">
+          <span id="email-error" class="form-error">Email is not valid. Make sure your email contains a prefix to the left of the @ symbol and a domain to the right, i.e. JohnDoe@test.com</span>
           <label for="country">Country</label>
-          <input type="text" id="country">
-          <label for="zipcode">Zip Code</label>
-          <input type="text" id="zipcode">
-          <label for="password" aria-describedby="password-requirements">Password</label>
-          <input type="text" id="password">
-          <span id="password-requirements">Passwords must contain:
+          <input type="text" id="country" name="country">
+          <span id="country-error" class="form-error">Country cannot contain numbers or special characters.</span>
+          <label for="zipcode" aria-describedby="zip-requirements">Zip Code</label>
+          <input type="text" id="zipcode" name="zipcode">
+          <span id="zip-error" class="form-error" aria-describedby="zip-requirements">Zip code is not valid.</span>
+          <span id="zip-requirements">Zip code must be in the US format and contain 5 numbers without any letters or special characters.</span>
+          <label for="password"` aria-describedby="password-requirements">Password</label>
+          <input type="password" id="password" name="password">
+          <span id="password-error" class="form-error" aria-describedby="password-requirements">Password is not valid.</span>
+          <span id="password-requirements">Password must contain:
             <ul>
               <li>At least 10 characters</li>
               <li>At least one capital letter</li>
@@ -44,7 +49,9 @@
             </ul>
           </span>
           <label for="password-confirm">Confirm Password</label>
-          <input type="text" id="password-confirm">
+          <input type="password" id="password-confirm">
+          <span id="password-confirm-error" class="form-error">Passwords do not match. Make sure both password fields are the same, including upper or lower case letters.</span>
+          <input type="submit" value="Submit">
         </fieldset>
       </form>
     </div>

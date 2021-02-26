@@ -10,6 +10,9 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
   },
   // devtool: "inline-source-map",
+  watchOptions: {
+    aggregateTimeout: 10000,
+  },
   plugins: [
     new MiniCssExtractPlugin({
       filename: "style-prefixed.css"
