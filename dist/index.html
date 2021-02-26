@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html theme="light" lang="en">
+  <head>
+    <title>Accessible Form</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" 
+    href="/dist/assets/images/logos/thatblindgeye-favicon.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap">    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style-prefixed.css">
+  </head>
+  <body>
+    <header>
+      <div id="accessibility-container">
+        <a href="#main" id="skip-to-main">Skip to main content</a>
+        <span role="switch" id="theme-switch" aria-checked="false" tabindex="0"></span>
+      </div>
+      <h1>An Accessible Form</h1>
+    </header>
+
+    <div id="main">
+      <form autocomplete="off">
+        <fieldset>
+          <legend aria-describedby="form-requirements">Sign Up</legend>
+          <span id="form-requirements">All fields are required</span>
+          <label for="email">Email</label>
+          <input type="text" id="email">
+          <label for="country">Country</label>
+          <input type="text" id="country">
+          <label for="zipcode">Zip Code</label>
+          <input type="text" id="zipcode">
+          <label for="password" aria-describedby="password-requirements">Password</label>
+          <input type="text" id="password">
+          <span id="password-requirements">Passwords must contain:
+            <ul>
+              <li>At least 10 characters</li>
+              <li>At least one capital letter</li>
+              <li>At least one number</li>
+            </ul>
+          </span>
+          <label for="password-confirm">Confirm Password</label>
+          <input type="text" id="password-confirm">
+        </fieldset>
+      </form>
+    </div>
+
+    <footer>
+      <nav id="lower-nav"></nav>
+    </footer>
+    <script src="app.js"></script>
+  </body>
+</html>
