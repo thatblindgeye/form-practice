@@ -39,7 +39,12 @@
           <span id="zip-error" class="form-error" aria-describedby="zip-requirements">Zip code is not valid.</span>
           <span id="zip-requirements">Zip code must be in the US format and contain 5 numbers without any letters or special characters.</span>
           <label for="password"` aria-describedby="password-requirements">Password</label>
-          <input type="password" id="password" name="password">
+          <div class="password-container">
+            <input type="password" id="password" name="password">
+            <span role="switch" class="material-icons password-visibility" aria-checked="false" aria-label="password hidden">
+              visibility
+            </span>
+          </div>
           <span id="password-error" class="form-error" aria-describedby="password-requirements">Password is not valid.</span>
           <span id="password-requirements">Password must contain:
             <ul>
@@ -49,7 +54,12 @@
             </ul>
           </span>
           <label for="password-confirm">Confirm Password</label>
-          <input type="password" id="password-confirm">
+          <div class="password-container">
+            <input type="password" id="password-confirm">
+            <span role="switch" class="material-icons password-visibility" aria-checked="false" aria-label="password hidden">
+              visibility
+            </span>
+          </div>
           <span id="password-confirm-error" class="form-error">Passwords do not match. Make sure both password fields are the same, including upper or lower case letters.</span>
           <input type="submit" value="Submit">
         </fieldset>

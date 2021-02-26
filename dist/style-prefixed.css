@@ -157,6 +157,12 @@ legend {
   font-size: 1.5rem;
 }
 
+#form-requirements,
+.password-container,
+input:not([type="password"]) {
+  width: 100%;
+}
+
 #form-requirements {
   margin-bottom: 50px;
 }
@@ -170,7 +176,8 @@ label:not(:first-of-type) {
   margin-top: 35px;
 }
 
-input:not([type="submit"]) {
+input:not([type="submit"]),
+.password-container {
   height: 2.5rem;
   margin-top: 5px;
   padding: 0 10px;
@@ -180,9 +187,39 @@ input:not([type="submit"]) {
   border-radius: 10px;
 }
 
-#form-requirements,
-input {
+.password-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  position: relative;
+}
+
+#password,
+#password-confirm {
   width: 100%;
+  height: 2.25rem;
+  margin-top: 0;
+  padding: 0 3rem 0 0;
+  border: none;
+  outline: none;
+}
+
+.password-visibility {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.password-visibility:hover {
+  cursor: pointer;
 }
 
 form span {
@@ -197,6 +234,7 @@ form span {
 }
 
 .form-error {
+  display: none;
   margin-top: 8px;
   padding: 10px 5px;
   background-color: var(--error);
