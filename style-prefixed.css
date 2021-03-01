@@ -21,7 +21,9 @@
   --color-secondary-var: ; /* 50-200 tonal range */
   /* backgrounds */
   --background-base: rgb(18, 18, 18);
+  --head-foot-bg: rgb(30, 30, 30);
   --input-bg: rgb(39, 39, 39);
+  --submit-bg: rgb(187, 180, 255);
   /* elevation refs */
   --elevation-00dp: rgb(18, 18, 18); /* text btn, top app bar (rest), */
   --elevation-01dp: rgb(30, 30, 30); /* searchbar (rest), card (rest), switch */
@@ -34,11 +36,13 @@
   --elevation-16dp: rgb(54, 54, 54); /* modal bottom/side, nav drawer */
   --elevation-24dp: rgb(56, 56, 56); /* dialogue */
   /* text */
-  --text-primary: rgb(255, 255, 255, 0.87);
+  --text-primary: rgba(255, 255, 255, 0.87);
   --text-invert: rgba(0, 0, 0, 0.87);
-  /* borders */
+  /* borders, outlines, etc. */
   --border-primary: rgb(240, 240, 240);
-  --focus: 2px dotted rgb(224, 224, 224);
+  --focus: 2px solid rgba(255, 255, 255, 0.87);
+  --input-focus: 0 0 1px 3px rgb(141, 139, 255);
+  --submit-border: rgb(33, 33, 33);
   /* images */
   --theme-toggle-icon: url(assets/images/icons/dark_mode-white-24dp.svg);
   /* misc */
@@ -56,13 +60,17 @@
   --color-secondary-var: ; /* +/- 200 of primary */
   /* backgrounds */
   --background-base: rgb(240, 240, 240);
+  --head-foot-bg: rgb(230, 230, 230);
   --input-bg: rgb(220, 220, 220);
+  --submit-bg: rgb(75, 42, 146);
   /* text */
   --text-primary: rgba(0, 0, 0, 0.87);
-  --text-invert: rgb(255, 255, 255, 0.87);
-  /* borders */
+  --text-invert: rgba(255, 255, 255, 0.87);
+  /* borders, outlines, etc. */
   --border-primary: rgb(18, 18, 18);
-  --focus: 2px dotted rgb(224, 224, 224);
+  --focus: 2px solid rgba(0, 0, 0, 0.87);
+  --input-focus: 0 0 1px 3px rgba(55, 60, 129, 0.6);
+  --submit-border: rgb(220, 220, 220);
   /* images */
   --theme-toggle-icon: url(assets/images/icons/light_mode-black-24dp.svg);
   /* misc */
@@ -92,8 +100,11 @@ a {
 /* ========== header/main nav ========== */
 header {
   width: 100%;
-  padding: 10px;
   background-color: var(--background-base)
+}
+
+h1 {
+  padding: 0 10px;
 }
 
 /* ========== accessibility ========== */
@@ -107,6 +118,8 @@ header {
   -webkit-box-align: center;
   -webkit-align-items: center;
           align-items: center;
+  padding: 10px;
+  background-color: var(--head-foot-bg);
 }
 
 #skip-to-main {
@@ -127,6 +140,12 @@ header {
 
 #theme-switch:hover {
   cursor: pointer;
+}
+
+#skip-to-main:focus,
+#theme-switch:focus {
+  outline: var(--focus);
+  outline-offset: 3px;
 }
 
 
@@ -187,6 +206,18 @@ input:not([type="submit"]),
   border-radius: 10px;
 }
 
+input:not([type="submit"]):focus,
+.password-container:focus-within {
+  outline: none;
+  box-shadow: var(--input-focus);
+}
+
+#password:focus,
+#password-confirm:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 .password-container {
   display: -webkit-box;
   display: -webkit-flex;
@@ -222,6 +253,11 @@ input:not([type="submit"]),
   cursor: pointer;
 }
 
+.password-visibility:focus {
+  outline: none;
+  box-shadow: var(--input-focus);
+}
+
 form span {
   display: inline-block;
   width: 100%;
@@ -251,10 +287,18 @@ input[type="submit"] {
   height: 3rem;
   margin: 75px 25%;
   border-radius: 20px;
+  border: 2px outset var(--submit-border);
+  background-color: var(--submit-bg);
+  color: var(--text-invert);
 }
 
 input[type="submit"]:hover {
   cursor: pointer;
+}
+
+input[type="submit"]:focus {
+  outline: none;
+  box-shadow: var(--input-focus);
 }
 
 
@@ -262,7 +306,7 @@ input[type="submit"]:hover {
 #lower-nav {
   width: 100%;
   height: 50px;
-  background: rgb(4, 0, 255);
+  background: var(--head-foot-bg);
 }
 
 /* ========== media queries ========== */
