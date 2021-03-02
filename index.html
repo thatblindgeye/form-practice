@@ -18,7 +18,7 @@
     <header>
       <div id="accessibility-container">
         <a href="#main" id="skip-to-main">Skip to main content</a>
-        <span role="switch" id="theme-switch" aria-checked="false" tabindex="0"></span>
+        <span role="switch" id="theme-switch" aria-checked="false" aria-label="enable light theme" tabindex="0"></span>
       </div>
       <h1>An Accessible Form</h1>
     </header>
@@ -26,22 +26,22 @@
     <div id="main" aria-live="polite">
       <form autocomplete="off" aria-live="polite" novalidate>
         <fieldset>
-          <legend aria-describedby="form-requirements">Submit this form</legend>
+          <legend aria-describedby="form-requirements">Practice submission</legend>
           <div id="form-requirements">All fields are required.</div>
           <label for="email">Email</label>
           <input type="email" id="email" name="email">
-          <span id="email-error" class="form-error">Email is not valid. Make sure your email contains a prefix to the left of the @ symbol and a domain to the right, i.e. JohnDoe@test.com</span>
+          <span id="email-error" class="form-error">Email is not valid. Make sure your email contains a prefix to the left of the @ symbol and a domain to the right, for example JohnDoe@test.com</span>
           <label for="country">Country</label>
           <input type="text" id="country" name="country">
-          <span id="country-error" class="form-error">Country cannot contain numbers or special characters.</span>
-          <label for="zipcode" aria-describedby="zip-requirements">Zip Code</label>
-          <input type="text" id="zipcode" name="zipcode">
-          <span id="zip-error" class="form-error" aria-describedby="zip-requirements">Zip code is not valid.</span>
+          <span id="country-error" class="form-error">Country cannot be blank and cannot contain numbers or special characters.</span>
+          <label for="zipcode">Zip Code</label>
+          <input type="text" id="zipcode" name="zipcode" aria-describedby="zip-requirements">
+          <span id="zip-error" class="form-error" aria-labelledby="zip-error zip-requirements">Zip code is not valid.</span>
           <span id="zip-requirements">Zip code must be in the US format and contain 5 numbers without any letters or special characters.</span>
           <label for="password" aria-describedby="password-requirements">Password</label>
           <div class="password-container">
             <input type="password" id="password" name="password">
-            <span role="switch" class="material-icons password-visibility" aria-checked="false" aria-label="password visibile" tabindex="0">
+            <span role="button" class="material-icons password-visibility" aria-pressed="false" aria-label="password visibility" tabindex="0">
               visibility_off
             </span>
           </div>
@@ -57,7 +57,7 @@
           <label for="confirm-password">Confirm Password</label>
           <div class="password-container">
             <input type="password" id="confirm-password">
-            <span role="switch" class="material-icons password-visibility" aria-checked="false" aria-label="password visibile" tabindex="0">
+            <span role="button" class="material-icons password-visibility" aria-pressed="false" aria-label="password visibility" tabindex="0">
               visibility_off
             </span>
           </div>
