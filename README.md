@@ -1,7 +1,7 @@
 # Accessible Form
 
 ## Description
-This is another mini-project for [The Odin Project](https://www.theodinproject.com/). The form has fields for an email, country, zip code, password, and password confirmation.
+This [practice form](https://thatblindgeye.github.io/form-practice/) another mini-project for [The Odin Project](https://www.theodinproject.com/). The form has fields for an email, country, zip code, password, and password confirmation.
 
 The form has ARIA attributes in order to make it accessible to screen readers. This feature needs to be tested, but the goal is for a screen reader to announce when an error dialogue has appeared either upon leaving an input field or upon pressing the submit button.
 

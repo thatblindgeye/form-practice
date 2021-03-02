@@ -9,13 +9,11 @@ const regex = {
 
 const togglePasswordVisibility = (e) => {
   if (e.target.getAttribute("aria-checked") === "false") {
-    e.target.setAttribute("aria-checked", "true");
-    // e.target.setAttribute("aria-label", "password visible");
+    e.target.setAttribute("aria-pressed", "true");
     e.target.textContent = "visibility";
     e.target.previousElementSibling.type = "text";
   } else {
-    e.target.setAttribute("aria-checked", "false");
-    // e.target.setAttribute("aria-label", "password hidden");
+    e.target.setAttribute("aria-pressed", "false");
     e.target.textContent = "visibility_off";
     e.target.previousElementSibling.type = "password";
   }
