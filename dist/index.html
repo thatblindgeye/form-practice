@@ -9,7 +9,7 @@
     <link rel="icon" 
     href="/dist/assets/images/logos/thatblindgeye-favicon.png">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap">    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style-prefixed.css">
@@ -26,7 +26,7 @@
     <div id="main" aria-live="polite">
       <form autocomplete="off" aria-live="polite" novalidate>
         <fieldset>
-          <legend aria-describedby="form-requirements">Sign Up</legend>
+          <legend aria-describedby="form-requirements">Submit this form</legend>
           <div id="form-requirements">All fields are required.</div>
           <label for="email">Email</label>
           <input type="email" id="email" name="email">
@@ -42,7 +42,7 @@
           <div class="password-container">
             <input type="password" id="password" name="password">
             <span role="switch" class="material-icons password-visibility" aria-checked="false" aria-label="password visibile" tabindex="0">
-              visibility
+              visibility_off
             </span>
           </div>
           <span id="password-error" class="form-error" aria-describedby="password-requirements">Password is not valid.</span>
@@ -58,12 +58,12 @@
           <div class="password-container">
             <input type="password" id="confirm-password">
             <span role="switch" class="material-icons password-visibility" aria-checked="false" aria-label="password visibile" tabindex="0">
-              visibility
+              visibility_off
             </span>
           </div>
           <span id="confirm-password-error" class="form-error">Passwords do not match. Make sure both password fields are the same, including upper or lower case letters.</span>
           <span id="submit-error" class="form-error">Form cannot be submitted until all fields are filled in with valid inputs.</span>
-          <input type="submit" id="submit-button" value="Submit">
+          <input type="submit" id="submit-button" value="SUBMIT">
         </fieldset>
       </form>
     </div>

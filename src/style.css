@@ -90,6 +90,8 @@ body {
   position: relative;
   background-color: var(--background-base);
   color: var(--text-primary);
+  font-family: Roboto, Verdana, Geneva, Tahoma, sans-serif;
+  letter-spacing: 1px;
 }
 
 a {
@@ -259,7 +261,7 @@ form span {
 .form-error {
   display: none;
   margin-top: 8px;
-  padding: 10px 5px;
+  padding: 10px;
   background-color: var(--error);
   color: var(--text-invert);
   border-radius: 10px;
@@ -277,6 +279,8 @@ form span {
   border: 2px outset var(--submit-border);
   background-color: var(--submit-bg);
   color: var(--text-invert);
+  font-size: 1.25rem;
+  font-weight: bold;
 }
 
 #submit-button:hover {
