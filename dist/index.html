@@ -41,7 +41,7 @@
           <label for="password" aria-describedby="password-requirements">Password</label>
           <div class="password-container">
             <input type="password" id="password" name="password">
-            <span role="switch" class="material-icons password-visibility" aria-checked="false" aria-label="password hidden" tabindex="0">
+            <span role="switch" class="material-icons password-visibility" aria-checked="false" aria-label="password visibile" tabindex="0">
               visibility
             </span>
           </div>
@@ -54,15 +54,16 @@
               <li>Cannot contain any special characters</li>
             </ul>
           </span>
-          <label for="password-confirm">Confirm Password</label>
+          <label for="confirm-password">Confirm Password</label>
           <div class="password-container">
-            <input type="password" id="password-confirm">
-            <span role="switch" class="material-icons password-visibility" aria-checked="false" aria-label="password hidden" tabindex="0">
+            <input type="password" id="confirm-password">
+            <span role="switch" class="material-icons password-visibility" aria-checked="false" aria-label="password visibile" tabindex="0">
               visibility
             </span>
           </div>
-          <span id="password-confirm-error" class="form-error">Passwords do not match. Make sure both password fields are the same, including upper or lower case letters.</span>
-          <input type="submit" value="SUBMIT">
+          <span id="confirm-password-error" class="form-error">Passwords do not match. Make sure both password fields are the same, including upper or lower case letters.</span>
+          <span id="submit-error" class="form-error">Form cannot be submitted until all fields are filled in with valid inputs.</span>
+          <input type="submit" id="submit-button" value="Submit">
         </fieldset>
       </form>
     </div>

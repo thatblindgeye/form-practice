@@ -2,20 +2,21 @@
 
 import './style.css';
 import {toggleTheme, themeSwitch} from "./site-settings";
-import {togglePasswordVisibility, passwordIcons, form, fields, checkFields, submitValidForm} from "./form";
+import {togglePasswordVisibility, validateFields, submitValidForm, checkErrorsOnSubmit} from "./form";
 
 const siteTheme = (() => {
   toggleTheme();
   themeSwitch.addEventListener("click", toggleTheme);
   themeSwitch.addEventListener("keydown", (e) => {
-    if (e.key === " ") {
+    if (e.key === " " || e.key === "Enter") {
       e.preventDefault();
       toggleTheme();
     };
   });
 })();
 
-const inputs = (() => {
+const formEvents = (() => {
+  const passwordIcons = document.querySelectorAll(".password-visibility");
   Array.from(passwordIcons).forEach(icon => {
     icon.addEventListener("click", (e) => {
       togglePasswordVisibility(e);
@@ -30,17 +31,17 @@ const inputs = (() => {
     });
   });
 
-
+  const fields = document.querySelectorAll('input:not([type="submit"])');
   Array.from(fields).forEach(field => {
-    field.addEventListener("blur", checkFields)
+    field.addEventListener("blur", validateFields)
   })
 
+  const form = document.querySelector("form");
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    if (checkFields(e)) {
+    checkErrorsOnSubmit(e);
+    if (validateFields(e)) {
       submitValidForm();
-    } else {
-      return;
     }
   })
 })();

@@ -4,10 +4,9 @@ const regex = {
   email: /^(\w*)(\.)?(\w*)@([A-Za-z]*)(\.([A-Za-z]{1,})){1,}$/,
   country: /^([a-z]+\s*){1,}$/i,
   zipcode: /^\d{5}$/,
-  password: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{10,}$/
-}
+  password: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{10,}$/,
+};
 
-const passwordIcons = document.querySelectorAll(".password-visibility");
 const togglePasswordVisibility = (e) => {
   if (e.target.getAttribute("aria-checked") === "false") {
     e.target.setAttribute("aria-checked", "true");
@@ -20,68 +19,79 @@ const togglePasswordVisibility = (e) => {
   }
 };
 
-const form = document.querySelector("form");
-const fields = document.querySelectorAll('input:not([type="submit"])')
 const emailInput = document.querySelector("#email");
 const countryInput = document.querySelector("#country");
 const zipInput = document.querySelector("#zipcode");
 const passwordInput = document.querySelector("#password");
-const confirmPassword = document.querySelector("#password-confirm");
-const checkFields = (e) => {
-  const {email, country, zipcode, password} = regex;
-  let validated = false;
+const confirmPassword = document.querySelector("#confirm-password");
+const submitButton = document.querySelector('input[type="submit"]');
+const submitError = document.querySelector("#submit-error");
 
-  if ((e.target === emailInput || e.type === "submit") &&
-      !email.test(emailInput.value)) {
-    showInputError(emailInput);
+const validateFields = (e) => {
+  const { email, country, zipcode, password } = regex;
+
+  if ((e.target === emailInput || e.type === "submit") && 
+      !email.test(emailInput.value)) 
+  {
+    addFormError(emailInput);
     return false;
-  } else {
-    removeInputError(emailInput);
-  };
+  } else if (email.test(emailInput.value)) {
+    removeFormError(emailInput);
+  }
 
   if ((e.target === countryInput || e.type === "submit") &&
-      !country.test(countryInput.value)) {
-  showInputError(countryInput);
-  return false;
+    !country.test(countryInput.value)) 
+  {
+    addFormError(countryInput);
+    return false;
   } else if (country.test(countryInput.value)) {
-  removeInputError(countryInput);
-  };
+    removeFormError(countryInput);
+  }
 
   if ((e.target === zipInput || e.type === "submit") &&
-      !zipcode.test(zipInput.value)) {
-  showInputError(zipInput);
-  return false;
+    !zipcode.test(zipInput.value)) 
+  {
+    addFormError(zipInput);
+    return false;
   } else if (zipcode.test(zipInput.value)) {
-  removeInputError(zipInput);
-  };
+    removeFormError(zipInput);
+  }
 
   if ((e.target === passwordInput || e.type === "submit") &&
-      !password.test(passwordInput.value)) {
-  showInputError(passwordInput.parentElement);
-  return false;
+    !password.test(passwordInput.value)) 
+  {
+    addFormError(passwordInput.parentElement);
+    return false;
   } else if (password.test(passwordInput.value)) {
-  removeInputError(passwordInput.parentElement);
-  };
+    removeFormError(passwordInput.parentElement);
+  }
 
-  if ((e.target === confirmPassword || e.type === "submit") && 
-      confirmPassword.value !== passwordInput.value) {
-    showInputError(confirmPassword.parentElement);
-    return false
+  if ((e.target === confirmPassword || e.type === "submit") &&
+    confirmPassword.value !== passwordInput.value) 
+  {
+    addFormError(confirmPassword.parentElement);
+    return false;
   } else {
-    removeInputError(confirmPassword.parentElement);
-  };
+    removeFormError(confirmPassword.parentElement);
+  }
 
   return true;
-}
+};
 
-const showInputError = (target) => {
+const addFormError = (target) => {
   target.classList.add("invalid");
   target.nextElementSibling.style.display = "inline-block";
-}
+};
 
-const removeInputError = (target) => {
+const removeFormError = (target) => {
   target.classList.remove("invalid");
   target.nextElementSibling.style.display = "none";
+};
+
+const checkErrorsOnSubmit = (e) => {
+  if (!validateFields(e)) {
+    submitError.style.display = "inline-block";
+  }
 }
 
 const main = document.querySelector("#main");
@@ -94,6 +104,6 @@ const submitValidForm = () => {
   heading.innerText = "You've submitted a valid form!";
   main.appendChild(heading);
   document.documentElement.scrollTop = 0;
-}
+};
 
-export {togglePasswordVisibility, passwordIcons, form, fields, checkFields, submitValidForm}
+export { togglePasswordVisibility, validateFields, submitValidForm, checkErrorsOnSubmit };

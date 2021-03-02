@@ -207,7 +207,7 @@ input:not([type="submit"]):focus,
 }
 
 #password:focus,
-#password-confirm:focus {
+#confirm-password:focus {
   outline: none;
   box-shadow: none;
 }
@@ -219,7 +219,7 @@ input:not([type="submit"]):focus,
 }
 
 #password,
-#password-confirm {
+#confirm-password {
   width: 100%;
   height: 2.25rem;
   margin-top: 0;
@@ -269,23 +269,32 @@ form span {
   box-shadow: 0 0 0 2px var(--error);
 }
 
-input[type="submit"] {
+#submit-button {
   width: 50%;
   height: 3rem;
-  margin: 75px 25%;
+  margin: 75px 25% 75px;
   border-radius: 20px;
   border: 2px outset var(--submit-border);
   background-color: var(--submit-bg);
   color: var(--text-invert);
 }
 
-input[type="submit"]:hover {
+#submit-button:hover {
   cursor: pointer;
 }
 
-input[type="submit"]:focus {
+#submit-button:focus {
   outline: none;
   box-shadow: var(--input-focus);
+}
+
+#submit-error {
+  /* display: inline-block; */
+  position: relative;
+  top: 70px;
+  background-color: var(--error);
+  color: var(--text-invert);
+  text-align: center;
 }
 
 
