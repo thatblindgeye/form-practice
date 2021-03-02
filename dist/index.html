@@ -23,8 +23,8 @@
       <h1>An Accessible Form</h1>
     </header>
 
-    <div id="main">
-      <form autocomplete="off">
+    <div id="main" aria-live="polite">
+      <form autocomplete="off" aria-live="polite" novalidate>
         <fieldset>
           <legend aria-describedby="form-requirements">Sign Up</legend>
           <div id="form-requirements">All fields are required.</div>
@@ -46,11 +46,12 @@
             </span>
           </div>
           <span id="password-error" class="form-error" aria-describedby="password-requirements">Password is not valid.</span>
-          <span id="password-requirements">Password must contain:
+          <span id="password-requirements">Password must:
             <ul>
-              <li>At least 10 characters</li>
-              <li>At least one capital letter</li>
-              <li>At least one number</li>
+              <li>Be at least 10 characters</li>
+              <li>Contain at least one capital letter</li>
+              <li>Contain at least one number</li>
+              <li>Cannot contain any special characters</li>
             </ul>
           </span>
           <label for="password-confirm">Confirm Password</label>

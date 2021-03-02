@@ -145,7 +145,13 @@ h1 {
 /* ========== main content ========== */
 #main {
   width: 100%;
+  min-height: 100vh;
   padding: 10px;
+}
+
+.form-success {
+  color: var(--text-primary);
+  text-align: center;
 }
 
 form {
