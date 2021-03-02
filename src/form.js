@@ -32,7 +32,6 @@ const validateFields = (e) => {
   if ((e.target === emailInput || e.type === "submit") && 
       !email.test(emailInput.value)) 
   {
-    removeFormError(emailInput);
     addFormError(emailInput);
     return false;
   } else if (email.test(emailInput.value)) {
@@ -88,9 +87,13 @@ const removeFormError = (target) => {
   target.nextElementSibling.style.display = "none";
 };
 
-const checkErrorsOnSubmit = (e) => {
-  if (!validateFields(e)) {
+const toggleSubmitError = (e) => {
+  if (e.type === "submit" && !validateFields(e)) {
     submitError.style.display = "inline-block";
+  };
+  // clear error so screen reader announces on subsequent invalid submissions
+  if (e.type === "blur") {
+    submitError.style.display = "none";
   }
 }
 
@@ -106,4 +109,4 @@ const submitValidForm = () => {
   document.documentElement.scrollTop = 0;
 };
 
-export { togglePasswordVisibility, validateFields, submitValidForm, checkErrorsOnSubmit };
+export { togglePasswordVisibility, validateFields, submitValidForm, toggleSubmitError };

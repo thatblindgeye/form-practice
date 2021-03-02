@@ -2,7 +2,7 @@
 
 import './style.css';
 import {toggleTheme, themeSwitch} from "./site-settings";
-import {togglePasswordVisibility, validateFields, submitValidForm, checkErrorsOnSubmit} from "./form";
+import {togglePasswordVisibility, validateFields, submitValidForm, toggleSubmitError} from "./form";
 
 const siteTheme = (() => {
   toggleTheme();
@@ -36,10 +36,12 @@ const formEvents = (() => {
     field.addEventListener("blur", validateFields)
   })
 
+  document.querySelector("#submit-button").addEventListener("blur", toggleSubmitError);
+
   const form = document.querySelector("form");
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    checkErrorsOnSubmit(e);
+    toggleSubmitError(e);
     if (validateFields(e)) {
       submitValidForm();
     }
