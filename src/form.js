@@ -8,7 +8,7 @@ const regex = {
 };
 
 const togglePasswordVisibility = (e) => {
-  if (e.target.getAttribute("aria-checked") === "false") {
+  if (e.target.getAttribute("aria-pressed") === "false") {
     e.target.setAttribute("aria-pressed", "true");
     e.target.textContent = "visibility";
     e.target.previousElementSibling.type = "text";
@@ -78,6 +78,7 @@ const validateFields = (e) => {
 };
 
 const addFormError = (target) => {
+  removeFormError(target);
   target.classList.add("invalid");
   target.nextElementSibling.style.display = "inline-block";
 };
