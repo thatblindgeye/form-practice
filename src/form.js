@@ -32,6 +32,7 @@ const validateFields = (e) => {
   if ((e.target === emailInput || e.type === "submit") && 
       !email.test(emailInput.value)) 
   {
+    removeFormError(emailInput);
     addFormError(emailInput);
     return false;
   } else if (email.test(emailInput.value)) {
@@ -78,7 +79,6 @@ const validateFields = (e) => {
 };
 
 const addFormError = (target) => {
-  removeFormError(target);
   target.classList.add("invalid");
   target.nextElementSibling.style.display = "inline-block";
 };

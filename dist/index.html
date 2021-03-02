@@ -24,12 +24,12 @@
     </header>
 
     <div id="main" aria-live="polite">
-      <form autocomplete="off" aria-live="polite" novalidate>
-        <fieldset>
-          <legend aria-describedby="form-requirements">Practice submission</legend>
+      <form autocomplete="off" novalidate>
+        <fieldset aria-live="polite">
+          <legend id="legend" aria-labelledby="legend form-requirements">Practice submission</legend>
           <div id="form-requirements">All fields are required.</div>
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" aria-labelledby="form-requirements email">
+          <input type="email" id="email" name="email">
           <span id="email-error" class="form-error">Email is not valid. Make sure your email contains a prefix to the left of the @ symbol and a domain to the right, for example JohnDoe@test.com</span>
           <label for="country">Country</label>
           <input type="text" id="country" name="country">
